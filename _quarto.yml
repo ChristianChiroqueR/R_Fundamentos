@@ -8,8 +8,8 @@ book:
   date: "7/13/2024"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - c0_programas.qmd
+    - c1_objetos.qmd
     - references.qmd
 
 bibliography: references.bib

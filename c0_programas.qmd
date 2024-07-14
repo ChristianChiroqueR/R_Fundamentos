@@ -1,0 +1,5 @@
+# Instalación de software {.unnumbered}
+
+```{r}
+1 + 1
+```
