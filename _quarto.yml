@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 book:
-  title: "R_Fundamentos"
+  title: "Fundamentos de R para Ciencias Sociales y Gestión Pública"
   author: "Christian Chiroque Ruiz"
-  date: "13/7/2024"
+  date: "7/13/2024"
   chapters:
     - index.qmd
     - intro.qmd
