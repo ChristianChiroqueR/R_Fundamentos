@@ -1,4 +1,4 @@
-# Preface {.unnumbered}
+# Sobre el curso {.unnumbered}
 
 This is a Quarto book.
 
