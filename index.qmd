@@ -4,45 +4,51 @@
 
 Este curso está diseñado para ofrecer una introducción al uso del software R desde la perspectiva de la ciencia de datos. A lo largo del curso, trabajaremos en tres ejes principales:
 
-1. Fundamentos de programación en R: Aquí aprenderemos las definiciones y los fundamentos de programación que sustentan el funcionamiento del software R y los distintos algoritmos que utilizaremos.
+1.  Fundamentos de programación en R: Aquí aprenderemos las definiciones y los fundamentos de programación que sustentan el funcionamiento del software R y los distintos algoritmos que utilizaremos.
 
-2. Herramientas para la manipulación de datos: En este eje, nos enfocaremos en la obtención, manipulación y transformación de datos, esenciales para trabajar con información de manera eficiente.
+2.  Herramientas para la manipulación de datos: En este eje, nos enfocaremos en la obtención, manipulación y transformación de datos, esenciales para trabajar con información de manera eficiente.
 
-3. Visualización de datos y reportes analíticos: Finalmente, estudiaremos los fundamentos para la visualización de datos y la elaboración de reportes analíticos, permitiéndonos comunicar nuestros hallazgos de manera clara y efectiva.
+3.  Visualización de datos y reportes analíticos: Finalmente, estudiaremos los fundamentos para la visualización de datos y la elaboración de reportes analíticos, permitiéndonos comunicar nuestros hallazgos de manera clara y efectiva.
 
-Puedes leer el detalle del contenido en el sílabo del curso colgado en la plataforma del Diplomado. 
+Puedes leer el detalle del contenido en el sílabo del curso colgado en la plataforma del Diplomado.
 
-
+```{=html}
+<iframe src="files/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
+```
 ## Sistema de evaluación
 
 La evaluación del curso está compuesta por tres componentes:
 
-
 **TRABAJO FINAL: REPORTE ANALÍTICO (50%)**
 
-- Se realizará de forma grupal.
+-   Se realizará de forma grupal.
 
-- Cada grupo seleccionará un tema de interés y aplicará a una base de datos de su elección cada uno de los temas vistos en el curso: importación, manipulación y transformación de datos, visualización y elaboración de un reporte analítico. 
+-   Cada grupo seleccionará un tema de interés y aplicará a una base de datos de su elección cada uno de los temas vistos en el curso: importación, manipulación y transformación de datos, visualización y elaboración de un reporte analítico.
 
-- Al finalizar el curso cada grupo entregará un código en R Markdown (que deberá poder ser reproducido por el docente) así como un reporte (HTML). 
+-   Al finalizar el curso cada grupo entregará un código en R Markdown (que deberá poder ser reproducido por el docente) así como un reporte (HTML).
 
-- Importantes: para garantizar una evaluación justa y transparente, cada grupo deberá presentar, al final de su proyecto, un breve informe de contribuciones individuales (no más de 10 líneas). **Este informe debe detallar las responsabilidades y tareas específicas asumidas por cada miembro del equipo. Si se diera el caso de que un miembro no ha participado de manera adecuada o ha habido una falta significativa de contribución, esto debe ser comunicado explícitamente en el informe.**
-
+-   Importantes: para garantizar una evaluación justa y transparente, cada grupo deberá presentar, al final de su proyecto, un breve informe de contribuciones individuales (no más de 10 líneas). **Este informe debe detallar las responsabilidades y tareas específicas asumidas por cada miembro del equipo. Si se diera el caso de que un miembro no ha participado de manera adecuada o ha habido una falta significativa de contribución, esto debe ser comunicado explícitamente en el informe.**
 
 **EJERCICIOS PRÁCTICOS (30%)**
 
-- Los ejercicios prácticos son evaluaciones asincrónicas que se realizarán de forma individual.
+-   Los ejercicios prácticos son evaluaciones asincrónicas que se realizarán de forma individual.
 
-- Estas evaluaciones tendrán un plazo de entrega de una semana. 
+-   Estas evaluaciones tendrán un plazo de entrega de una semana.
 
-- Consistirán en la aplicación del contenido visto en clase en una data particular, sea provista por el docente o propuesto por el estudiante.
-
+-   Consistirán en la aplicación del contenido visto en clase en una data particular, sea provista por el docente o propuesto por el estudiante.
 
 **PARTICIPACIÓN EN CLASE (20%)**
 
-- La participación en clase es evaluada considerando tanto la frecuencia como la calidad de las contribuciones de los estudiantes, de forma individual. 
+-   La participación en clase es evaluada considerando tanto la frecuencia como la calidad de las contribuciones de los estudiantes, de forma individual.
 
-- Se realizará utilizando plataformas para realizar evaluaciones rápidas al finalizar cada semana, las cuales incluirán mayormente preguntas teóricas. 
+-   Se realizará utilizando plataformas para realizar evaluaciones rápidas al finalizar cada semana, las cuales incluirán mayormente preguntas teóricas.
 
-- Estas evaluaciones tendrán un plazo de entrega de 1 día. 
+-   Estas evaluaciones tendrán un plazo de entrega de 1 día.
 
+## Sobre trabajo final
+
+Puedes encontrar las instrucciones en el siguiente documento:
+
+```{=html}
+<iframe src="files/trabajo_grupal.pdf" width="700" height="500" style="border: none;"></iframe>
+```

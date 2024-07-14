@@ -1,14 +1,15 @@
 # Introducción al R
 
-## Objetivos de la sesión
+## Objetivos de la sesión {.unnumbered}
 
 -   Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.
 
-## Presentación
+## Presentación {.unnumbered}
 
 ```{=html}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv_Qyx_cMFYrUKhE49ygf01eUseWvWcr1UUWq3J1ZqgSF2f4ND9c0Q_GHLaATlZpCQLpXU_7psyzRe/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSkXYbvWS5fbyN8LRBHn2Hcvv03-wzst6a2Hwbm-zhQ8AK1YqqxsOGnRQGOI-T0gF2V_F3Z5zqOWoWU/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
+
 
 ## Sobre R
 
@@ -22,9 +23,9 @@ Cada objeto tiene atributos y comportamientos asociados que determinan cómo se 
 
 Imagina que cada objeto en R es como un coche. Los "atributos" de ese coche pueden incluir su color, marca, modelo, y año de fabricación. Estos atributos describen las características específicas del coche. Ahora, piensa en los "comportamientos asociados" como las acciones que puedes realizar con ese coche: encenderlo, acelerar, frenar o encender las luces. Del mismo modo, en R, un objeto, como un conjunto de datos, podría tener atributos que describan su tamaño, tipo y estructura. Y los comportamientos asociados de ese conjunto de datos podrían incluir operaciones como filtrar, ordenar o aplicar una función estadística.
 
-### Cómo programar: Script
+### Dónde escribir mi código: Script
 
-Existen varias formas de escribir código en el R. Para ello tenemos algunas opciones simples, como el Script y otras un poco más elaboradas como el R Markdown.
+Existen varias formas de escribir código en el R. Para ello tenemos algunas opciones simples, como el Script y otras un poco más elaboradas como Quarto.
 
 Para fines de esta primera clase vamos a utilizar el script, el cual es un documento de texto que tiene la peculiaridad que puede ser leídos por el programa como un manual de código. De esa forma, nosotros podemos colocar en el script los códigos de nuestro análisis, ordenarlos, comentarlos y reproducirlos en el R Studio automáticamente.
 
@@ -70,8 +71,8 @@ country
 
 Uno puede asignar un nombre a un objeto en el R con la flecha de asignación (\<-)
 
-::: callout-important
-En la próxima clase, exploraremos otro tipo de objetos conocidos como factores.
+::: callout-note
+Hay otro tipo de objetos conocidos como factores que los estudiaremos líneas más abajo!.
 :::
 
 ### Vectores

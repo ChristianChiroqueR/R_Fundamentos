@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./c2_manipulacion.html" rel="next">
 <link href="./c0_programas.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -165,6 +165,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./c2_manipulacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografía</span></a>
   </div>
@@ -179,29 +185,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión"><span class="header-section-number">1.1</span> Objetivos de la sesión</a></li>
-  <li><a href="#presentación" id="toc-presentación" class="nav-link" data-scroll-target="#presentación"><span class="header-section-number">1.2</span> Presentación</a></li>
-  <li><a href="#sobre-r" id="toc-sobre-r" class="nav-link" data-scroll-target="#sobre-r"><span class="header-section-number">1.3</span> Sobre R</a>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión">Objetivos de la sesión</a></li>
+  <li><a href="#presentación" id="toc-presentación" class="nav-link" data-scroll-target="#presentación">Presentación</a></li>
+  <li><a href="#sobre-r" id="toc-sobre-r" class="nav-link" data-scroll-target="#sobre-r"><span class="header-section-number">1.1</span> Sobre R</a>
   <ul class="collapse">
-  <li><a href="#consideraciones-básicas" id="toc-consideraciones-básicas" class="nav-link" data-scroll-target="#consideraciones-básicas"><span class="header-section-number">1.3.1</span> Consideraciones básicas</a></li>
-  <li><a href="#cómo-programar-script" id="toc-cómo-programar-script" class="nav-link" data-scroll-target="#cómo-programar-script"><span class="header-section-number">1.3.2</span> Cómo programar: Script</a></li>
+  <li><a href="#consideraciones-básicas" id="toc-consideraciones-básicas" class="nav-link" data-scroll-target="#consideraciones-básicas"><span class="header-section-number">1.1.1</span> Consideraciones básicas</a></li>
+  <li><a href="#dónde-escribir-mi-código-script" id="toc-dónde-escribir-mi-código-script" class="nav-link" data-scroll-target="#dónde-escribir-mi-código-script"><span class="header-section-number">1.1.2</span> Dónde escribir mi código: Script</a></li>
   </ul></li>
-  <li><a href="#elementos-básicos" id="toc-elementos-básicos" class="nav-link" data-scroll-target="#elementos-básicos"><span class="header-section-number">1.4</span> Elementos básicos</a>
+  <li><a href="#elementos-básicos" id="toc-elementos-básicos" class="nav-link" data-scroll-target="#elementos-básicos"><span class="header-section-number">1.2</span> Elementos básicos</a>
   <ul class="collapse">
-  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">1.4.1</span> Objetos</a></li>
-  <li><a href="#vectores" id="toc-vectores" class="nav-link" data-scroll-target="#vectores"><span class="header-section-number">1.4.2</span> Vectores</a></li>
-  <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones"><span class="header-section-number">1.4.3</span> Funciones</a></li>
-  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">1.4.4</span> Dataframes</a></li>
-  <li><a href="#índices" id="toc-índices" class="nav-link" data-scroll-target="#índices"><span class="header-section-number">1.4.5</span> Índices</a></li>
+  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">1.2.1</span> Objetos</a></li>
+  <li><a href="#vectores" id="toc-vectores" class="nav-link" data-scroll-target="#vectores"><span class="header-section-number">1.2.2</span> Vectores</a></li>
+  <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones"><span class="header-section-number">1.2.3</span> Funciones</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">1.2.4</span> Dataframes</a></li>
+  <li><a href="#índices" id="toc-índices" class="nav-link" data-scroll-target="#índices"><span class="header-section-number">1.2.5</span> Índices</a></li>
   </ul></li>
-  <li><a href="#procedimientos-básicos" id="toc-procedimientos-básicos" class="nav-link" data-scroll-target="#procedimientos-básicos"><span class="header-section-number">1.5</span> Procedimientos básicos</a>
+  <li><a href="#procedimientos-básicos" id="toc-procedimientos-básicos" class="nav-link" data-scroll-target="#procedimientos-básicos"><span class="header-section-number">1.3</span> Procedimientos básicos</a>
   <ul class="collapse">
-  <li><a href="#apertura-de-paquetes" id="toc-apertura-de-paquetes" class="nav-link" data-scroll-target="#apertura-de-paquetes"><span class="header-section-number">1.5.1</span> Apertura de paquetes</a></li>
-  <li><a href="#apertura-de-archivos" id="toc-apertura-de-archivos" class="nav-link" data-scroll-target="#apertura-de-archivos"><span class="header-section-number">1.5.2</span> Apertura de archivos</a></li>
-  <li><a href="#identificación-teórica-de-la-variable" id="toc-identificación-teórica-de-la-variable" class="nav-link" data-scroll-target="#identificación-teórica-de-la-variable"><span class="header-section-number">1.5.3</span> Identificación teórica de la variable</a></li>
-  <li><a href="#configuración-de-las-variable-en-r" id="toc-configuración-de-las-variable-en-r" class="nav-link" data-scroll-target="#configuración-de-las-variable-en-r"><span class="header-section-number">1.5.4</span> Configuración de las variable en R</a></li>
+  <li><a href="#apertura-de-paquetes" id="toc-apertura-de-paquetes" class="nav-link" data-scroll-target="#apertura-de-paquetes"><span class="header-section-number">1.3.1</span> Apertura de paquetes</a></li>
+  <li><a href="#apertura-de-archivos" id="toc-apertura-de-archivos" class="nav-link" data-scroll-target="#apertura-de-archivos"><span class="header-section-number">1.3.2</span> Apertura de archivos</a></li>
+  <li><a href="#identificación-teórica-de-la-variable" id="toc-identificación-teórica-de-la-variable" class="nav-link" data-scroll-target="#identificación-teórica-de-la-variable"><span class="header-section-number">1.3.3</span> Identificación teórica de la variable</a></li>
+  <li><a href="#configuración-de-las-variable-en-r" id="toc-configuración-de-las-variable-en-r" class="nav-link" data-scroll-target="#configuración-de-las-variable-en-r"><span class="header-section-number">1.3.4</span> Configuración de las variable en R</a></li>
   </ul></li>
-  <li><a href="#ficha-resumen-cheat-sheet" id="toc-ficha-resumen-cheat-sheet" class="nav-link" data-scroll-target="#ficha-resumen-cheat-sheet"><span class="header-section-number">1.6</span> Ficha resumen (Cheat Sheet)</a></li>
+  <li><a href="#ficha-resumen-cheat-sheet" id="toc-ficha-resumen-cheat-sheet" class="nav-link" data-scroll-target="#ficha-resumen-cheat-sheet"><span class="header-section-number">1.4</span> Ficha resumen (Cheat Sheet)</a></li>
   </ul>
 </nav>
     </div>
@@ -227,28 +233,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="objetivos-de-la-sesión" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="objetivos-de-la-sesión"><span class="header-section-number">1.1</span> Objetivos de la sesión</h2>
+<section id="objetivos-de-la-sesión" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="objetivos-de-la-sesión">Objetivos de la sesión</h2>
 <ul>
 <li>Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.</li>
 </ul>
 </section>
-<section id="presentación" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="presentación"><span class="header-section-number">1.2</span> Presentación</h2>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv_Qyx_cMFYrUKhE49ygf01eUseWvWcr1UUWq3J1ZqgSF2f4ND9c0Q_GHLaATlZpCQLpXU_7psyzRe/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<section id="presentación" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="presentación">Presentación</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSkXYbvWS5fbyN8LRBHn2Hcvv03-wzst6a2Hwbm-zhQ8AK1YqqxsOGnRQGOI-T0gF2V_F3Z5zqOWoWU/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </section>
-<section id="sobre-r" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sobre-r"><span class="header-section-number">1.3</span> Sobre R</h2>
-<section id="consideraciones-básicas" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="consideraciones-básicas"><span class="header-section-number">1.3.1</span> Consideraciones básicas</h3>
+<section id="sobre-r" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sobre-r"><span class="header-section-number">1.1</span> Sobre R</h2>
+<section id="consideraciones-básicas" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="consideraciones-básicas"><span class="header-section-number">1.1.1</span> Consideraciones básicas</h3>
 <p>R es un lenguaje de programación y un entorno de software libre orientado principalmente al análisis estadístico y la representación gráfica de datos.</p>
 <p>R es un lenguaje de programación que adopta el paradigma de la “programación orientada a objetos”. Esto significa que, en R, todo se considera un “objeto”, ya sea un número, una base de datos o un modelo estadístico.</p>
 <p>Cada objeto tiene atributos y comportamientos asociados que determinan cómo se puede interactuar con él.</p>
 <p>Imagina que cada objeto en R es como un coche. Los “atributos” de ese coche pueden incluir su color, marca, modelo, y año de fabricación. Estos atributos describen las características específicas del coche. Ahora, piensa en los “comportamientos asociados” como las acciones que puedes realizar con ese coche: encenderlo, acelerar, frenar o encender las luces. Del mismo modo, en R, un objeto, como un conjunto de datos, podría tener atributos que describan su tamaño, tipo y estructura. Y los comportamientos asociados de ese conjunto de datos podrían incluir operaciones como filtrar, ordenar o aplicar una función estadística.</p>
 </section>
-<section id="cómo-programar-script" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="cómo-programar-script"><span class="header-section-number">1.3.2</span> Cómo programar: Script</h3>
-<p>Existen varias formas de escribir código en el R. Para ello tenemos algunas opciones simples, como el Script y otras un poco más elaboradas como el R Markdown.</p>
+<section id="dónde-escribir-mi-código-script" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="dónde-escribir-mi-código-script"><span class="header-section-number">1.1.2</span> Dónde escribir mi código: Script</h3>
+<p>Existen varias formas de escribir código en el R. Para ello tenemos algunas opciones simples, como el Script y otras un poco más elaboradas como Quarto.</p>
 <p>Para fines de esta primera clase vamos a utilizar el script, el cual es un documento de texto que tiene la peculiaridad que puede ser leídos por el programa como un manual de código. De esa forma, nosotros podemos colocar en el script los códigos de nuestro análisis, ordenarlos, comentarlos y reproducirlos en el R Studio automáticamente.</p>
 <p>En suma, podemos redactar nuestros script, compartirlos con otros investigadores y ejecutarlos.</p>
 <ul>
@@ -259,10 +265,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/y7JPGlw6dJg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
-<section id="elementos-básicos" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="elementos-básicos"><span class="header-section-number">1.4</span> Elementos básicos</h2>
-<section id="objetos" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="objetos"><span class="header-section-number">1.4.1</span> Objetos</h3>
+<section id="elementos-básicos" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="elementos-básicos"><span class="header-section-number">1.2</span> Elementos básicos</h2>
+<section id="objetos" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="objetos"><span class="header-section-number">1.2.1</span> Objetos</h3>
 <p>Vamos a examinar la clase de algunos de los elementos más básicos en R.</p>
 <p>Un objeto puede ser un número. En este caso el objeto es de tipo <strong>numeric</strong>.</p>
 <div class="cell">
@@ -294,22 +300,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Uno puede asignar un nombre a un objeto en el R con la flecha de asignación (&lt;-)</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Importante
+Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En la próxima clase, exploraremos otro tipo de objetos conocidos como factores.</p>
+<p>Hay otro tipo de objetos conocidos como factores que los estudiaremos líneas más abajo!.</p>
 </div>
 </div>
 </section>
-<section id="vectores" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="vectores"><span class="header-section-number">1.4.2</span> Vectores</h3>
+<section id="vectores" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="vectores"><span class="header-section-number">1.2.2</span> Vectores</h3>
 <ul>
 <li><p>Un vector es una colección de uno o más datos del mismo tipo.</p></li>
 <li><p>Tipo. Un vector tiene el mismo tipo que los datos que contiene. Si tenemos un vector que contiene datos de tipo numérico, el vector será también de tipo numérico.</p></li>
@@ -330,8 +336,8 @@ Importante
 </div>
 </div>
 </section>
-<section id="funciones" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="funciones"><span class="header-section-number">1.4.3</span> Funciones</h3>
+<section id="funciones" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="funciones"><span class="header-section-number">1.2.3</span> Funciones</h3>
 <p>Una función es como una máquina a la que le das un insumo, o <strong>input</strong> para que realice un procedimiento específico. Luego de realizar el procedimiento, la máquina te da un resultado que le vamos a llamar <strong>output</strong>.</p>
 <p>Por ejemplo, podemos utilizar la función <code>sqrt()</code> para obtener la raíz cuadrada de un número. En este caso aplicamos una función sobre un sólo número.</p>
 <div class="cell">
@@ -372,8 +378,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="dataframes" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">1.4.4</span> Dataframes</h3>
+<section id="dataframes" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">1.2.4</span> Dataframes</h3>
 <p>Los data frames son estructuras de datos de dos dimensiones (rectangulares) que pueden contener <strong>vectores</strong> de diferentes tipos.</p>
 <p>Es la estructura más usada para ciencia de datos y la que vamos a ver de forma más recurrente en el curso.</p>
 <p>Lo más importante que debes recordar es que las filas en un dataframe representan casos, individuos u observaciones, mientras que las columnas representan atributos, rasgos o variables.</p>
@@ -421,8 +427,8 @@ Importante
 </div>
 </div>
 </section>
-<section id="índices" class="level3" data-number="1.4.5">
-<h3 data-number="1.4.5" class="anchored" data-anchor-id="índices"><span class="header-section-number">1.4.5</span> Índices</h3>
+<section id="índices" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="índices"><span class="header-section-number">1.2.5</span> Índices</h3>
 <ul>
 <li><p>Usar índices para obtener subconjuntos es el procedimiento más universal en R, pues funciona para todas las estructuras de datos.</p></li>
 <li><p>Un índice en R representa una posición.</p></li>
@@ -486,11 +492,11 @@ Tip
 </div>
 </section>
 </section>
-<section id="procedimientos-básicos" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="procedimientos-básicos"><span class="header-section-number">1.5</span> Procedimientos básicos</h2>
+<section id="procedimientos-básicos" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="procedimientos-básicos"><span class="header-section-number">1.3</span> Procedimientos básicos</h2>
 <p>Hasta aquí hemos aprendido los elementos básicos del R, ahora procederemos a analizar los procedimientos más cotidianos que realizaremos en un proceso de análisis de datos estadísticos.</p>
-<section id="apertura-de-paquetes" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="apertura-de-paquetes"><span class="header-section-number">1.5.1</span> Apertura de paquetes</h3>
+<section id="apertura-de-paquetes" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="apertura-de-paquetes"><span class="header-section-number">1.3.1</span> Apertura de paquetes</h3>
 <p>Líneas arriba te había comentado que existían funciones que podías aplicar sobre objetos en el R. Dabas un input y la función te arrojaba un determinado resultado.</p>
 <p>Ahora bien, lo más interesante del R es que existen diferentes “conjuntos de funciones” para tareas específicas y que uno puede <strong>instalar</strong> y <strong>utilizar</strong> en tu proceso de análisis.</p>
 <p>Para instalar un paquete necesitas escribir <code>install.packages("nombre_del_paquete")</code>. Luego de instalarlo, para comenzar a utilizarlo debes abrirlo con el siguiente comando <code>library(nombre_del_paquete)</code>.</p>
@@ -517,8 +523,8 @@ Tip
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="apertura-de-archivos" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="apertura-de-archivos"><span class="header-section-number">1.5.2</span> Apertura de archivos</h3>
+<section id="apertura-de-archivos" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="apertura-de-archivos"><span class="header-section-number">1.3.2</span> Apertura de archivos</h3>
 <p>Lo más común es que se te va a entregar un archivo para que lo puedas abrir en el R.</p>
 <p>Para ello, una primera forma sencilla de abrir un archivo es haciendo uso de la función <code>import</code> del paquete <code>rio</code>:</p>
 <div class="cell">
@@ -574,32 +580,32 @@ Tip
 </div>
 </div>
 </section>
-<section id="identificación-teórica-de-la-variable" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="identificación-teórica-de-la-variable"><span class="header-section-number">1.5.3</span> Identificación teórica de la variable</h3>
+<section id="identificación-teórica-de-la-variable" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="identificación-teórica-de-la-variable"><span class="header-section-number">1.3.3</span> Identificación teórica de la variable</h3>
 <p><img src="images/variables.png" class="img-fluid"></p>
 <p>Antes de seguir en el análisis debemos corroborar los tipos de variables con los que estamos trabajando a nivel teórico.</p>
 <p>En una data real, esto normalmente lo encontramos en el Cuestionario o Diccionario de Variables. Según la teoría estadistica podemos tener dos grandes opciones.</p>
-<section id="numéricas" class="level4" data-number="1.5.3.1">
-<h4 data-number="1.5.3.1" class="anchored" data-anchor-id="numéricas"><span class="header-section-number">1.5.3.1</span> Numéricas</h4>
+<section id="numéricas" class="level4" data-number="1.3.3.1">
+<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="numéricas"><span class="header-section-number">1.3.3.1</span> Numéricas</h4>
 <p>Las variables numéricas son aquellas que representan cantidades medidas o contadas, y pueden ser de tipo entero o decimal. Permiten realizar operaciones matemáticas y son fundamentales en el análisis estadístico y cuantitativo.</p>
 <p>Se clasifican en continuas y discretas, basándose en los valores que pueden tomar.</p>
 <p>Las variables discretas representan información que se puede contar en unidades enteras, como el número de <strong>hospitales</strong> en nuestra base de datos.</p>
 <p>Por otro lado, las variables continuas pueden tomar cualquier valor dentro de un rango, incluyendo decimales. En nuestra base de datos contamos con variables como * como la altura o el peso <strong>pobreza</strong>, <strong>agua</strong>, entre otros. Esto significa que pueden medir con precisión infinita dentro de su escala, adaptándose a una variedad más amplia de datos y mediciones.</p>
 </section>
-<section id="categóricas" class="level4" data-number="1.5.3.2">
-<h4 data-number="1.5.3.2" class="anchored" data-anchor-id="categóricas"><span class="header-section-number">1.5.3.2</span> Categóricas</h4>
+<section id="categóricas" class="level4" data-number="1.3.3.2">
+<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="categóricas"><span class="header-section-number">1.3.3.2</span> Categóricas</h4>
 <p>Una variable categórica clasifica las observaciones en grupos o categorías que no tienen un orden matemático inherente. Se dividen en nominales y ordinales.</p>
 <p>Las variables nominales representan categorías sin un orden específico entre ellas, como colores, nombres de países o géneros. En nuestra data una variable nominal sería <strong>macroregion</strong>.</p>
 <p>En cambio, las variables ordinales sí poseen un orden o jerarquía entre las categorías, aunque la distancia entre estas no es necesariamente uniforme; por ejemplo, niveles de educación o calificaciones de satisfacción. Continuando con el ejemplo, la variable ordinal <strong>nivel_pobreza</strong> clasifica en categorías donde el 1 corresponde a “Bajo”, el 2 a “Medio” y el 3 a “Alto”.</p>
 </section>
 </section>
-<section id="configuración-de-las-variable-en-r" class="level3" data-number="1.5.4">
-<h3 data-number="1.5.4" class="anchored" data-anchor-id="configuración-de-las-variable-en-r"><span class="header-section-number">1.5.4</span> Configuración de las variable en R</h3>
+<section id="configuración-de-las-variable-en-r" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="configuración-de-las-variable-en-r"><span class="header-section-number">1.3.4</span> Configuración de las variable en R</h3>
 <p>Ahora veamos qué tenemos en nuestra data.</p>
 <p>Veamos las siguientes tres variables: poblacion (numérica), macroregión (nominal) y nivel de pobreza (ordinal).</p>
 <p>Dichas variables qué tipo de objeto son actualmente en el R?</p>
-<section id="numeric" class="level4" data-number="1.5.4.1">
-<h4 data-number="1.5.4.1" class="anchored" data-anchor-id="numeric"><span class="header-section-number">1.5.4.1</span> Numeric</h4>
+<section id="numeric" class="level4" data-number="1.3.4.1">
+<h4 data-number="1.3.4.1" class="anchored" data-anchor-id="numeric"><span class="header-section-number">1.3.4.1</span> Numeric</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data<span class="sc">$</span>poblacion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -609,8 +615,8 @@ Tip
 <p>Para el caso de población cuenta con la configuración adecuada pues es <strong>numeric</strong>.</p>
 <p>Ten en cuenta que para el caso de una variable numérica discreta como <strong>hospitales</strong> la configuración adecuada también es numeric.</p>
 </section>
-<section id="factors" class="level4" data-number="1.5.4.2">
-<h4 data-number="1.5.4.2" class="anchored" data-anchor-id="factors"><span class="header-section-number">1.5.4.2</span> Factors</h4>
+<section id="factors" class="level4" data-number="1.3.4.2">
+<h4 data-number="1.3.4.2" class="anchored" data-anchor-id="factors"><span class="header-section-number">1.3.4.2</span> Factors</h4>
 <p>Para el caso de las variables categóricas, para poder trabajar con estas en el R debemos convertirlas a un tipo especial de objeto denominado <strong>factor</strong>.</p>
 <p>Básicamente, un factor es una variable que tiene grupos, los cuales pueden estar ordenados o no ordenados.</p>
 <p><strong>FACTORES NO ORDENADOS</strong></p>
@@ -709,8 +715,8 @@ Importante
 </section>
 </section>
 </section>
-<section id="ficha-resumen-cheat-sheet" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="ficha-resumen-cheat-sheet"><span class="header-section-number">1.6</span> Ficha resumen (Cheat Sheet)</h2>
+<section id="ficha-resumen-cheat-sheet" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="ficha-resumen-cheat-sheet"><span class="header-section-number">1.4</span> Ficha resumen (Cheat Sheet)</h2>
 <iframe src="files/1-programacion_basica.pdf" width="700" height="500" style="border: none;"></iframe>
 
 
@@ -1250,8 +1256,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Bibliografía">
-        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./c2_manipulacion.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Manipulación de tablas</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

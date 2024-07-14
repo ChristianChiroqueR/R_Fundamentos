@@ -1,0 +1,336 @@
+# Manipulación de tablas
+
+## Objetivos de la sesión {.unnumbered}
+
+-   Al final de esta sesión, el estudiante será capaz de manipular un dataframe a fin de editarlo de acuerdo a su necesidad utilizando algunos verbos básicos del paquete `dplyr`. También podrá solicitar algunos de los principales estadísticos descriptivos de tendencia central.
+
+## Presentación {.unnumbered}
+
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSzIP1Y4dnSARNKLc3CcA-HJZDar2Ms4lrSkwXQ--DudR7n3fi4bMPhHho55LKerTiDSERDhheti3Ln/embed?start=false&loop=false&delayms=60000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+
+## Introducción al Tidyverse
+
+El tidyverse es una colección de paquetes de R diseñados para la ciencia de datos que comparten una filosofía subyacente y son interoperables, facilitando la importación, manipulación, exploración y visualización de datos.
+
+Te sugiero ver este video introductorio sobre el Tidyverse:
+
+{{< video https://www.youtube.com/watch?v=6HYKusg31Yo >}}
+
+Abrimos la librería tidyverse:
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rio)
+```
+
+## Manipulación de datos con dplyr
+
+`dplyr` es un paquete del Tidyverse que sirve para manipular tablas y transformarlas. Tiene una amplia gama de verbos con los cuales podemos realizar las tareas más recurrentes de la manipulación de datos.
+
+{{< video https://www.youtube.com/watch?v=etxZRx3Jx8o >}}
+
+### Problema de investigación y data
+
+![](images/cpi.png)
+
+El Índice de Percepción de la Corrupción (CPI, por sus siglas en inglés) es una herramienta global que clasifica a los países según la percepción de corrupción en el sector público, basándose en evaluaciones de expertos y encuestas de negocios. La escala va de 0 (muy corrupto) a 100 (muy limpio), y sirve para comparar la situación de corrupción entre diferentes naciones. Es publicado anualmente por Transparency International, una organización no gubernamental dedicada a combatir la corrupción global.
+
+Examinemos la base original. Vamos a editar la tabla con diversos verbos de `dplyr`.
+
+**Abrir archivo**
+
+Abrimos el archivo con el paquete \`rio\`\`:
+
+```{r message=FALSE, warning=FALSE}
+library(rio)
+data_con_rio<-import("data/CPI.xlsx")
+```
+
+Ten en cuenta que en el R también existen otros paquetes como readr, haven o readxl que también te permiten abrir archivos de distintos formatos.
+
+Por ejemplo, podríamos abrir este archivo con la función `read_xlsx()`:
+
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+data<-read_xlsx("data/CPI.xlsx")
+```
+
+Podemos ver las datas (y las diferencias que trae abrirlas con uno u otro paquete):
+
+```{r}
+#data_con_rio
+class(data_con_rio)
+```
+
+```{r}
+data
+class(data)
+```
+
+::: callout-note
+Un tibble es una versión moderna del dataframe en R, parte del tidyverse, diseñado para facilitar el trabajo con datos tabulares.
+:::
+
+**Exploración del dataset y configuración de variables**
+
+Vemos la estructura rápidamente:
+
+```{r}
+str(data)
+```
+
+Al ejecutar names() sobre un conjunto de datos, se nos devuelve un vector con los nombres de todas las columnas en el orden en que aparecen.
+
+```{r}
+names(data)
+```
+
+::: callout-tip
+Antes de proseguir con el análisis descriptivo, es fundamental que comprendas claramente qué representan las filas y las columnas en tus datos.
+:::
+
+Corroboramos que el score del CPI esté adecuadamente configurado.
+
+```{r}
+class(data$cpi_score)
+```
+
+De acuerdo, podemos proseguir.
+
+### Select()
+
+La función select() es utilizada para seleccionar o excluir columnas de un data frame o tibble en R. Va más allá de simplemente escoger columnas por nombre, ya que permite una amplia gama de criterios y operaciones.
+
+Funcionamiento básico:
+
+-   Entrada: Un data frame o tibble y un conjunto de nombres de columnas o criterios para seleccionar columnas.
+
+-   Salida: Un objeto de la misma clase que el de entrada (data frame o tibble) que contiene solo las columnas seleccionadas.
+
+Vamos a seleccionar sólo ciertas columnas:
+
+```{r}
+data1<-data |> 
+  select(country, year, region, cpi_score)
+data1
+```
+
+Tener en cuenta que puedes:
+
+-   Seleccionar por nombre
+
+-   Seleccionar por el número de la columna
+
+-   (Des)seleccionar colocando un “-” antes del nombre/número de columna.
+
+-   Seleccionar un rango colocando por ejemplo 2:4 lo que significa “desde la columna 2 hasta la columna 4).
+
+-   Puedes combinar todas las anteriores y tener más de un criterio a la vez separándolo por coma.
+
+### Filter()
+
+La función filter() se utiliza para filtrar filas de un data frame o tibble en R en función de condiciones específicas, permitiendo crear un subconjunto de datos.
+
+Al crear subconjuntos nuestros datos de forma precisa, podemos focalizar nuestro análisis, mejorar la eficiencia computacional y obtener resultados más claros y relevantes.
+
+Características principales:
+
+-   Condiciones múltiples: Puedes usar múltiples condiciones para filtrar tus datos. Estas se combinan utilizando operadores lógicos como & (y), \| (o) y ! (no).
+
+-   Uso de operadores de comparación: Los operadores estándar como ==, \>, \<, \>=, \<=, y != se utilizan para establecer condiciones.
+
+-   Funciones auxiliares: dplyr proporciona funciones como between(), que pueden ser útiles para establecer condiciones. Por ejemplo, between(x, 1, 10) es equivalente a x \>= 1 & x \<= 10.
+
+En este caso vamos a seleccionar aquellos países cuya medición es del año 2022.
+
+```{r}
+data2<-data1 %>%                   
+  filter(year==2022)
+data2
+```
+
+### Arrange()
+
+Se utiliza para ordenar (o reordenar) un data frame o tibble según una o más columnas.
+
+Funcionamiento básico:
+
+-   Ordenación simple: Si proporcionas una columna a arrange(), ordenará el data frame en función de esa columna en orden ascendente por defecto.
+
+-   Ordenación descendente: Si deseas ordenar en dirección descendente, puedes usar la función desc(). Por ejemplo: df \|\> arrange(desc(edad)) ordenará el data frame por la columna "edad" en orden descendente.
+
+-   Ordenación múltiple: Puedes proporcionar múltiples columnas para ordenar, y arrange() las usará en el orden proporcionado para determinar el ordenamiento. Por ejemplo, si deseas ordenar primero por "grupo" y luego por "edad" dentro de cada grupo, usarías: df \|\> arrange(grupo, edad).
+
+```{r}
+data3<-data2 |>    
+  arrange(desc(cpi_score))
+data3
+```
+
+### Mutate()
+
+La función mutate() está diseñada para crear o modificar columnas dentro de un data frame o tibble en R. Mientras que el data frame original se mantiene inalterado, mutate() devuelve una copia con las columnas especificadas añadidas o alteradas.
+
+En este caso vamos a crear una variable cambiando la escala del score del CPI.
+
+En la medida original 0 representaba alta corrupción y 100 escasa corrupción. Ahora, si realizamos la operación "100 - cpi_score", los valores cercanos a 0 tendrán poca corrupción y los cercanos a 100 alta corrupción, siendo más intuitivo.
+
+Esta transformación puede ser útil para ajustar la interpretación de los datos a contextos donde es más intuitivo trabajar con escalas donde un número mayor indica mayor intensidad de un fenómeno (Corrupción, en este caso), dependiendo del análisis que se desea realizar.
+
+```{r}
+data4<-data3 |>   
+  mutate(cpi_score2=100-cpi_score) 
+data4
+```
+
+### Summarise()
+
+Se utiliza para crear resúmenes estadísticos de un data frame o tibble.
+
+Dentro de los resúmenes puedes disponer de por ejemplo:
+
+**Medidas de tendencia central: Estas funciones describen un valor central o típico dentro de un conjunto de datos.**
+
+-   Media: mean(x)
+-   Mediana: median(x)
+
+Cómo calcularíamos la media de forma directa (tradicional)?
+
+```{r}
+summary(data4$cpi_score2)
+```
+
+::: callout-warning
+¿Qué significa NA´s? ¿Por qué se produce esto en una data como la de Corruption Perception Index?
+:::
+
+Cómo lo calculamos con tidyverse?
+
+```{r}
+data4 |>   
+  summarise(mean(cpi_score2, na.rm = T))    
+```
+
+::: callout-note
+Cuando aplicamos un summarise lo que nos devuelve es un valor o conjunto de valores. Por otro lado, el argumento na.rm = TRUE se utiliza para especificar que los valores perdidos (NA) deben ser ignorados en el cálculo. De esta forma, le indicamos a la función que proceda con la operación excluyendo dichos valores ausentes.
+:::
+
+### Utilizando pipe: \|\>
+
+Probablemente hayas observado que hemos creado un conjunto de datos para cada verbo utilizado, lo cual en situaciones reales resultaría excesivamente repetitivo. Haciendo una analogía con la escritura de un libro, sería como si estuviéramos limitados a usar únicamente oraciones, lo cual haría el proceso tedioso.
+
+El operador \|\> (pipe) en R, introducido en la versión 4.1, permite realizar operaciones en cadena, facilitando la secuencia de funciones y transformaciones en un flujo más legible y ordenado.
+
+Es evidente que, mediante el uso del operador pipe, podemos encadenar verbos de manera fluida y evitar la creación innecesaria de objetos, ya que este operador permite que el resultado a la izquierda se convierta automáticamente en el argumento de la función a la derecha.
+
+```{r}
+data |>
+  select(country, year, region, cpi_score) |> 
+  filter(year==2022) |> 
+  arrange(desc(cpi_score)) |> 
+  mutate(cpi_score2=100-cpi_score) |> 
+  summarise(mean(cpi_score2, na.rm=T))  
+```
+
+::: callout-warning
+¿Qué sucede si a esta cadena de pipes le doy un nombre? ¿Cuál sería el objeto creado?
+:::
+
+```{r}
+data_final<-data |>
+  select(country, year, region, cpi_score) |> 
+  filter(year==2022) |>
+  arrange(desc(cpi_score)) |>
+  mutate(cpi_score2=100-cpi_score) 
+```
+
+## Funciones complementarias
+
+### Agrupando con group_by()
+
+Se utiliza para dividir un conjunto de datos en grupos según valores de una o más variables (normalmente de tipo categórica). Una vez que los datos están agrupados, es posible realizar operaciones específicas dentro de cada grupo.
+
+```{r}
+data |>   
+  group_by(year) |> 
+  summarise(Media=mean(cpi_score, na.rm = T)) 
+```
+
+### Contar con count()
+
+Facilita el conteo de observaciones dentro de categorías específicas de una o más variables en un dataframe. Esta función agrupa el conjunto de datos por las variables especificadas y luego calcula el número de observaciones dentro de cada categoría, retornando un nuevo dataframe con las categorías y sus respectivos conteos. Es una herramienta esencial para obtener resúmenes rápidos y frecuencias de variables categóricas en datos estructurados.
+
+```{r}
+data_final |>   
+  count(region) |>  
+  arrange(desc(n))  
+```
+
+::: callout-note
+En la última línea de código, indicamos a R que ordene los datos de acuerdo a la variable 'n', la cual fue definida en la línea de código precedente. Es importante recordar que la ejecución de acciones o funciones en R se realiza de manera secuencial y acumulativa.
+:::
+
+### Renombrar con rename()
+
+Permite cambiar los nombres de las columnas de un dataframe. Para ello, se especifica el nuevo nombre deseado y el nombre actual de la columna. Esta función es útil cuando se necesita ajustar o estandarizar los nombres de las columnas en un conjunto de datos, facilitando así análisis posteriores y asegurando la claridad y consistencia en la manipulación de los datos.
+
+Primero debes escribir el nuevo nombre y luego el nombre original de la variable.
+
+```{r}
+data_final |>   
+  rename(zona=region)   # Renombro la columna "region" (nombre original) como "zona" (nombre nuevo)
+```
+
+### Recodificar con case_when()
+
+La función case_when() del paquete tidyverse en R sirve para recodificar datos y crear nuevas variables o modificar variables existentes basándose en múltiples condiciones.
+
+Permite evaluar varias condiciones utilizando una sintaxis similar a una instrucción "if-else". Esta función es particularmente útil cuando necesitamos recodificar una variable en varias categorías o cuando tenemos múltiples condiciones a evaluar.
+
+Se coloca primero la condición (fórmula) seguido del símbolo \~ (alt+126) y la etiqueta.
+
+Al final se coloca TRUE, lo que indica todos aquellos casos que no cumplen con las condiciones anteriores.
+
+{{< video https://www.youtube.com/watch?v=zzehac81W2k >}}
+
+```{r}
+summary(data_final$cpi_score2)
+```
+
+```{r}
+data_final<-data_final |> 
+            drop_na(cpi_score2)
+            summary(data_final$cpi_score2)
+```
+
+Podemos realizar:
+
+```{r}
+data_final<-data_final  |>   
+  mutate(corrupcion=case_when(cpi_score2<30~"Bajo", 
+                              cpi_score2<60~"Medio", 
+                              cpi_score2<=100~"Alto")) 
+```
+
+Le asignamos la configuración adecuada:
+
+```{r}
+data_final$corrupcion<-factor(data_final$corrupcion,
+                          levels = c("Bajo", "Medio", "Alto"),
+                          ordered = TRUE)
+```
+
+Finalmente, ya contamos una nueva nueva variable ordinal creada a partir de una variable numérica:
+
+```{r}
+str(data_final$corrupcion)
+```
+
+## Ficha resumen (Cheat Sheet)
+
+```{=html}
+<iframe src="files/2_MANIPULACIÓN.pdf" width="700" height="500" style="border: none;"></iframe>
+```

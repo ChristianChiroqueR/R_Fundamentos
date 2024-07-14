@@ -10,6 +10,7 @@ book:
     - index.qmd
     - c0_programas.qmd
     - c1_objetos.qmd
+    - c2_manipulacion.qmd
     - references.qmd
 
 bibliography: references.bib

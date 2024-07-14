@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -175,7 +141,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#r-un-lenguaje-de-programación" id="toc-r-un-lenguaje-de-programación" class="nav-link active" data-scroll-target="#r-un-lenguaje-de-programación">R, un lenguaje de programación</a></li>
+  <li><a href="#r-studio" id="toc-r-studio" class="nav-link" data-scroll-target="#r-studio">R Studio</a></li>
+  <li><a href="#manual-de-instalación-de-r-y-r-studio" id="toc-manual-de-instalación-de-r-y-r-studio" class="nav-link" data-scroll-target="#manual-de-instalación-de-r-y-r-studio">Manual de instalación de R y R Studio</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -199,14 +174,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="r-un-lenguaje-de-programación" class="level2">
+<h2 class="anchored" data-anchor-id="r-un-lenguaje-de-programación">R, un lenguaje de programación</h2>
+<p><img src="images/R_logo.png" class="img-fluid"></p>
+<p>R es un entorno y lenguaje de programación con un enfoque al análisis estadístico. Primero debemos instalar el R (el software estadístico), el cual lo podemos descargar en el siguiente enlace:</p>
+<p><a href="https://cran.r-project.org/bin/windows/base/">Haz click aquí para descargar R</a></p>
+<p>La versión más reciente, al 14 de julio del 2024, es la 4.4.1.</p>
+<p>Recuerda que R es un software libre por eso otorga a los usuarios la libertad de usar, estudiar, modificar y distribuir el código fuente. Estas libertades permiten colaboración y mejora continua del software por parte de la comunidad.</p>
+</section>
+<section id="r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="r-studio">R Studio</h2>
+<p><img src="images/Rstudio_logo.png" class="img-fluid"></p>
+<p>RStudio es un entorno de desarrollo integrado (IDE) para el lenguaje de programación R. Facilita el trabajo con R al proporcionar una interfaz gráfica amigable que incluye un editor de código avanzado, herramientas de depuración, visualización de datos y gestión de paquetes, lo que optimiza y simplifica el proceso de análisis de datos y programación estadística.</p>
+<p>Lo puedes descargar desde el siguiente link:</p>
+<p><a href="https://posit.co/download/rstudio-desktop/">Haz click aquí para descargar R Studio</a></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>¡Recuerda que primero debes instalar R y luego R Studio!</p>
+</div>
+</div>
+</section>
+<section id="manual-de-instalación-de-r-y-r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="manual-de-instalación-de-r-y-r-studio">Manual de instalación de R y R Studio</h2>
+<p>Te sugiero ver el siguiente video para que puedas instalar los programas en tu computadora:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Re3DqxM_f2k" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<p><img src="images/quarto_logo.jpeg" class="img-fluid"></p>
+<p>Quarto es una plataforma de publicación que permite crear documentos reproducibles, combinando texto, código y resultados de análisis en un solo documento.</p>
+<p>Es especialmente útil para científicos de datos, analistas y académicos, ya que soporta múltiples lenguajes de programación como R, Python y Julia.</p>
+<p>Quarto facilita la creación de informes, presentaciones, sitios web y más, integrando visualizaciones y análisis de datos de manera dinámica y reproducible.</p>
+<p>Lo puedes descargar desde el siguiente link:</p>
+<p><a href="https://quarto.org/docs/download/">Haz click aquí para descargar Quarto</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
