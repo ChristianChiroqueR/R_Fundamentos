@@ -6,7 +6,7 @@
 
 ## Base de datos
 
-Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo. 
+Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo.
 
 Los datos abarcan: País, Continente, Región, Índice, Índice de Lavado de Activos, Matrícula, PBI per cápita, Pobreza Urbano, Gasto en educación, Índice de Percepción de la Corrupción, Estado de derecho, Índice de Democracia, Categoría del Índice de Democracia, Índice de Crimen Organizado.
 
@@ -22,15 +22,13 @@ Veamos la data rápidamente:
 head(data)
 ```
 
-
 ## Anatomía de un ggplot
 
 ![](images/capas.png)
 
-`ggplot2` es un popular paquete de visualización de datos para el lenguaje de programación R, basado en los principios de la "Gramática de Gráficos". Esta filosofía de diseño permite a los usuarios construir gráficos complejos y estéticamente agradables a partir de componentes básicos de forma intuitiva y flexible. 
+`ggplot2` es un popular paquete de visualización de datos para el lenguaje de programación R, basado en los principios de la "Gramática de Gráficos". Esta filosofía de diseño permite a los usuarios construir gráficos complejos y estéticamente agradables a partir de componentes básicos de forma intuitiva y flexible.
 
 El núcleo de ggplot2 radica en su sistema de capas, donde cada gráfico se construye agregando capas que pueden incluir, entre otros, los datos, las estéticas (como color, forma y tamaño), los objetos geométricos (como puntos, líneas y barras), las escalas, y las anotaciones. Este enfoque modular no solo facilita la personalización y optimización de los gráficos sino que también promueve una estructura de código clara y comprensible.
-
 
 Vamos a hacer un ejemplo paso a paso:
 
@@ -45,7 +43,7 @@ data |>
   ggplot()
 ```
 
-### Estéticas 
+### Estéticas
 
 Es el diseño básico del gráfico (Aesthetics).
 
@@ -96,7 +94,6 @@ data |>
   facet_wrap(~Continent)
 ```
 
-
 En este punto podemos agregar también un color distinto a cada continente:
 
 ```{r}
@@ -107,8 +104,6 @@ data |>
   facet_wrap(~Continent)+
   aes(color=Continent)
 ```
-
-
 
 ### Estadísticas
 
@@ -125,7 +120,6 @@ data |>
   geom_hline(aes(yintercept = mean(gastoedu)), linetype = "dotdash", color = "blue")
 ```
 
-
 ### Coordenadas
 
 Define el sistema de coordenadas usado para el gráfico. Puede ser cartesiano (por default), polar, etc.
@@ -139,9 +133,7 @@ data |>
   scale_x_log10()
 ```
 
-
-También podemos editar a nivel de las etiquetas que es súmamente importante para que el lector identifique a qué se refiere cada eje. 
-
+También podemos editar a nivel de las etiquetas que es súmamente importante para que el lector identifique a qué se refiere cada eje.
 
 ```{r}
 data |> 
@@ -156,7 +148,6 @@ data |>
       y="Gasto público en educación (% PBI)")
 ```
 
-
 ### Temas
 
 Controla los aspectos no relacionados con los datos del gráfico, como la fuente, colores de fondo, líneas de cuadrícula, márgenes, etc.
@@ -166,7 +157,6 @@ Funciones: theme_gray(), theme_bw(), theme_classic()
 Se puede crear un tema para que se adapte a la imagen institucional de una organización o al tipo de diseño de un documento específico.
 
 Se modifican temas tales como el color del fondo, los ejes, tamaño del gráfico, grilla, posición de los nombres, entre otros.
-
 
 ```{r}
 data |> 
@@ -182,11 +172,9 @@ data |>
   theme_classic()
 ```
 
-
 También te sugiero ver este video de soporte
 
 {{< video https://www.youtube.com/watch?v=HPJn1CMvtmI&list=PLtL57Fdbwb_C6RS0JtBojTNOMVlgpeJkS >}}
-
 
 ## Para variables categóricas
 
@@ -242,7 +230,6 @@ data |>
 Aunque los gráficos de pie son ampliamente reconocidos y frecuentemente utilizados para mostrar proporciones de un todo, en la práctica suelen ser menos efectivos que los gráficos de barras. Esto se debe a que los gráficos de barras ofrecen una comparación más clara y precisa entre categorías, facilitando la interpretación de las diferencias en magnitud.
 :::
 
-
 ### Gráfico de barras acumulada
 
 Un gráfico de barras apiladas (acumuladas) es una forma de visualizar datos categóricos donde cada barra representa una categoría y las subcategorías se apilan una encima de otra dentro de la misma barra. Esto permite ver tanto el total de cada categoría como la contribución de cada subcategoría al total.
@@ -267,6 +254,7 @@ data |>
             stat = "count",
             position = position_fill(vjust = 0.5))
 ```
+
 ::: callout-note
 En ggplot2, las partes del código que usan .. (puntos dobles) se refieren a variables estadísticas temporales que se crean durante el cálculo de estadísticas en el gráfico. Estas variables no existen en los datos originales, sino que se generan en el proceso de crear el gráfico, y son accesibles solo dentro de ciertas funciones como aes() en geom_text().
 :::
@@ -350,7 +338,7 @@ library(readxl)
 CPI<-read_xlsx("data/CPI.xlsx")
 ```
 
-Cómo evolucionó Perú y Bolivia en el CPI score desde el 2017?
+Cómo evolucionó Perú y Bolivia en el CPI score desde el 2017?.
 
 ```{r}
 CPI |> 
