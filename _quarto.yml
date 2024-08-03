@@ -5,12 +5,13 @@ project:
 book:
   title: "Fundamentos de R para Ciencias Sociales y Gestión Pública"
   author: "Christian Chiroque Ruiz"
-  date: "7/13/2024"
+  date: "8/3/2024" #M/D/Y
   chapters:
     - index.qmd
     - c0_programas.qmd
     - c1_objetos.qmd
     - c2_manipulacion.qmd
+    - c3_visualizacion.qmd
     - references.qmd
 
 bibliography: references.bib

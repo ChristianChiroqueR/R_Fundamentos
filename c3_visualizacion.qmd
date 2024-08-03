@@ -1,0 +1,366 @@
+# Visualización de datos
+
+## Objetivos de la sesión
+
+-   Tras familiarizarnos con los principios básicos de la programación en R y la manipulación de sus elementos clave, nos centraremos en la visualización de datos.
+
+## Base de datos
+
+Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo. 
+
+Los datos abarcan: País, Continente, Región, Índice, Índice de Lavado de Activos, Matrícula, PBI per cápita, Pobreza Urbano, Gasto en educación, Índice de Percepción de la Corrupción, Estado de derecho, Índice de Democracia, Categoría del Índice de Democracia, Índice de Crimen Organizado.
+
+```{r}
+library(tidyverse)
+library(readxl)
+data<-read_xlsx("data/AML.xlsx")
+```
+
+Veamos la data rápidamente:
+
+```{r}
+head(data)
+```
+
+
+## Anatomía de un ggplot
+
+![](images/capas.png)
+
+`ggplot2` es un popular paquete de visualización de datos para el lenguaje de programación R, basado en los principios de la "Gramática de Gráficos". Esta filosofía de diseño permite a los usuarios construir gráficos complejos y estéticamente agradables a partir de componentes básicos de forma intuitiva y flexible. 
+
+El núcleo de ggplot2 radica en su sistema de capas, donde cada gráfico se construye agregando capas que pueden incluir, entre otros, los datos, las estéticas (como color, forma y tamaño), los objetos geométricos (como puntos, líneas y barras), las escalas, y las anotaciones. Este enfoque modular no solo facilita la personalización y optimización de los gráficos sino que también promueve una estructura de código clara y comprensible.
+
+
+Vamos a hacer un ejemplo paso a paso:
+
+### Datos
+
+Es el conjunto de datos a visualizar.
+
+Nuestra primera capa siempre va a ser la data. Sobre esta iniciamos la función ggplot y corroboramos que tenemos un lienzo en blanco.
+
+```{r}
+data |> 
+  ggplot()
+```
+
+### Estéticas 
+
+Es el diseño básico del gráfico (Aesthetics).
+
+Mapeo de variables a propiedades visuales como color, forma o tamaño, definidas con aes().
+
+A diferencia del lienzo en blanco, ya contamos con un diseño. En este caso, hemos indicado al R que el eje X será la variable Pobreza.
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=Pobreza, y=gastoedu)
+```
+
+::: callout-warning
+En ggplot2, las capas de un gráfico se van adicionando secuencialmente utilizando el operador +.
+:::
+
+### Geometrías (Geoms)
+
+Son representaciones gráficas de los datos, como puntos, líneas o barras (geom_point(), geom_line(), geom_bar(), etc.).
+
+En nuestro ejemplo, podemos agregar la geometría de puntos para hacer un scatterplot o diagrama de dispersión:
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  geom_point()
+```
+
+::: callout-note
+En el paquete {ggplot2} existen 30 geometrías disponibles. Puedes ver el detalle de estos en la [documentación del paquete](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf).
+:::
+
+Esta estructura de capas hace que ggplot2 sea extremadamente útil para explorar y presentar datos de manera efectiva, permitiendo a los usuarios desde principiantes hasta expertos crear visualizaciones de datos complejas y personalizadas con relativa facilidad.
+
+### Facetas
+
+Permite descomponer un gráfico en subgráficos, también llamadas cuadrículas o facetas, según una variable cualitativa.
+
+Sirve para comparar grupos, separándolos y así facilitando la identificación de diferencias significativas entre estos.
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  geom_point() + 
+  facet_wrap(~Continent)
+```
+
+
+En este punto podemos agregar también un color distinto a cada continente:
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  geom_point() + 
+  facet_wrap(~Continent)+
+  aes(color=Continent)
+```
+
+
+
+### Estadísticas
+
+Permite adicionar geometrías basados estadísticos específicos calculados a partir de los datos de insumo.
+
+Por ejemplo, se puede colocar la media de una variable numérica.
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  aes(color=Continent)+
+  geom_point()+
+  geom_hline(aes(yintercept = mean(gastoedu)), linetype = "dotdash", color = "blue")
+```
+
+
+### Coordenadas
+
+Define el sistema de coordenadas usado para el gráfico. Puede ser cartesiano (por default), polar, etc.
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  aes(color=Continent)+
+  geom_point()+
+  scale_x_log10()
+```
+
+
+También podemos editar a nivel de las etiquetas que es súmamente importante para que el lector identifique a qué se refiere cada eje. 
+
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  aes(color=Continent)+
+  geom_point(size=2)+
+  labs(title="Gráfico de dispersión de gasto en educación y el Índice de Corrupción", 
+      subtitle="Año 2018", 
+      caption="Fuente: FMI\nElaboración Propia", 
+      x="Índice de Corrupción",
+      y="Gasto público en educación (% PBI)")
+```
+
+
+### Temas
+
+Controla los aspectos no relacionados con los datos del gráfico, como la fuente, colores de fondo, líneas de cuadrícula, márgenes, etc.
+
+Funciones: theme_gray(), theme_bw(), theme_classic()
+
+Se puede crear un tema para que se adapte a la imagen institucional de una organización o al tipo de diseño de un documento específico.
+
+Se modifican temas tales como el color del fondo, los ejes, tamaño del gráfico, grilla, posición de los nombres, entre otros.
+
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=gastoedu)+
+  aes(color=Continent)+
+  geom_point(size=2)+
+  labs(title="Gráfico de dispersión de gasto en educación y el Índice de Corrupción", 
+      subtitle="Año 2018", 
+      caption="Fuente: FMI\nElaboración Propia", 
+      x="Índice de Corrupción",
+      y="Gasto público en educación (% PBI)")+
+  theme_classic()
+```
+
+
+También te sugiero ver este video de soporte
+
+{{< video https://www.youtube.com/watch?v=HPJn1CMvtmI&list=PLtL57Fdbwb_C6RS0JtBojTNOMVlgpeJkS >}}
+
+
+## Para variables categóricas
+
+Dependiendo del tipo de variables que se analizan, las técnicas y herramientas de visualización varían. A continuación, se describen las aproximaciones recomendadas para visualizar datos, diferenciando entre variables categóricas y numéricas.
+
+### Gráfico de barras simple
+
+En un gráfico de barras vertical,las categorías se representan en el eje horizontal y la frecuencia o cantidad en el eje vertical.
+
+El gráfico de barras es una herramienta útil para comparar la frecuencia o cantidad de diferentes categorías o variables en un conjunto de datos.
+
+Utilizamos la función geom_bar(). El resultado es que la función ha **CONTADO** la frecuencia de cada categoría de DemocracyIndexCat
+
+```{r}
+data |>                # Data
+  ggplot() +           # Iniciamos la construcción del gráfico con ggplot 
+  aes(x = Democracy_Index_cat) + # Establecemos la variable como el eje x
+  geom_bar()           # Creamos un gráfico de barras basado en el conteo de 'continent'
+```
+
+En algunas ocasiones ya contamos con el conteo realizado y sólo deseamos el gráfico. Para ello utilizamos el ARGUMENTO stat=“identity”.
+
+Un caso como el siguiente:
+
+```{r}
+data |>  
+  count(Democracy_Index_cat)
+```
+
+En estos casos utilizamos la función:
+
+```{r}
+data |>  
+  count(Democracy_Index_cat) |> 
+  ggplot() +           
+  aes(y = n, x=Democracy_Index_cat) + #En este caso le he tenido que especificar tanto x como y!
+  geom_bar(stat="identity")          
+```
+
+Agregando etiquetas de los datos y nombres de los ejes:
+
+```{r}
+data |>  
+  count(Democracy_Index_cat) |> 
+  ggplot() +           
+  aes(y = n, x=Democracy_Index_cat) + #En este caso le he tenido que especificar tanto x como y!
+  geom_bar(stat="identity")+
+  geom_text(aes(label=n, vjust=-1, size=3))+
+  labs(x="Tipo de régimen", y="Frecuencia")
+```
+
+::: callout-note
+Aunque los gráficos de pie son ampliamente reconocidos y frecuentemente utilizados para mostrar proporciones de un todo, en la práctica suelen ser menos efectivos que los gráficos de barras. Esto se debe a que los gráficos de barras ofrecen una comparación más clara y precisa entre categorías, facilitando la interpretación de las diferencias en magnitud.
+:::
+
+
+### Gráfico de barras acumulada
+
+Un gráfico de barras apiladas (acumuladas) es una forma de visualizar datos categóricos donde cada barra representa una categoría y las subcategorías se apilan una encima de otra dentro de la misma barra. Esto permite ver tanto el total de cada categoría como la contribución de cada subcategoría al total.
+
+```{r}
+data |> 
+  drop_na(Continent, Democracy_Index_cat) |> 
+  ggplot()+
+  aes(x = Continent, fill = Democracy_Index_cat)+
+  geom_bar(position = "fill")
+```
+
+Podemos personalizar el gráfico un poco más:
+
+```{r}
+data |> 
+  drop_na(Continent, Democracy_Index_cat) |> 
+  ggplot()+
+  aes(x = Continent, fill = Democracy_Index_cat)+
+  geom_bar(position = "fill")+
+  geom_text(aes(label = scales::percent(..count../tapply(..count.., ..x.., sum)[..x..], accuracy = 1)),
+            stat = "count",
+            position = position_fill(vjust = 0.5))
+```
+::: callout-note
+En ggplot2, las partes del código que usan .. (puntos dobles) se refieren a variables estadísticas temporales que se crean durante el cálculo de estadísticas en el gráfico. Estas variables no existen en los datos originales, sino que se generan en el proceso de crear el gráfico, y son accesibles solo dentro de ciertas funciones como aes() en geom_text().
+:::
+
+## Para variables numéricas
+
+### Boxplot
+
+![](images/boxplot.png)
+
+Es utilizado para representar la distribución de un conjunto de datos numéricos a través de sus cuartiles.
+
+El gráfico consiste en una caja que representa el rango intercuartil (IQR),es decir, la diferencia entre el tercer cuartil (Q3) y el primer cuartil(Q1).
+
+Dentro de la caja,se dibuja una línea que representa la mediana.
+
+Los bigotes,que se extienden desde la caja, indican el rango de los datos que se encuentran dentro de un cierto múltiplo del IQR, generalmente 1.5 veces el IQR.
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(y = PBIPC) + 
+  geom_boxplot()
+```
+
+Los valores que están por encima o por debajo de los bigotes se representan como puntos o asteriscos, que se conocen como valores atípicos.
+
+El boxplot es útil para identificar **valores atípicos** y para comparar la distribución de varios conjuntos de datos en un solo gráfico. También permite visualizar la simetría o asimetría de la distribución y la presencia de sesgo.
+
+Puedes probar este video sugerido:
+
+{{< video https://www.youtube.com/watch?v=fHLhBnmwUM0 >}}
+
+También puedes solicitar boxplot por grupos:
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(y = PBIPC, colour=Continent) + 
+  geom_boxplot()
+```
+
+¿qué nos dice este gráfico?
+
+### Histograma
+
+Un histograma es un tipo de gráfico utilizado en estadísticas para representar la distribución de un conjunto de datos numéricos mediante barras. Cada barra en un histograma representa la frecuencia (número de veces que ocurren) de datos dentro de un intervalo o "bin" específico.
+
+Los bins dividen el espectro completo de los datos en series de intervalos consecutivos, y son todos de igual tamaño. La altura de cada barra muestra cuántos datos caen dentro de cada intervalo.
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(x=PBIPC) + 
+  geom_histogram()
+```
+
+Los histogramas permiten observar cómo se distribuyen los datos, revelando si están equilibradamente repartidos o inclinados hacia un extremo. Una distribución es simétrica cuando las mitades a ambos lados de la media son imágenes espejo.
+
+Si está sesgada hacia la derecha, significa que hay una acumulación de datos hacia el lado izquierdo del gráfico, con una cola que se extiende hacia la derecha. Como en el caso del gráfico de líneas arriba.
+
+Por otro lado, un sesgo hacia la izquierda indica una concentración de datos hacia la derecha, con una cola que se alarga hacia la izquierda. Los histogramas también muestran si los datos se agrupan en torno a varios valores centrales, evidenciado por la presencia de varios picos o "modas".
+
+Así como nuestros gráficos anteriores, podemos personalizar mucho más nuestro gráfico:
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(x=PBIPC) + 
+  geom_histogram()+
+  geom_vline(xintercept = mean(data$PBIPC), color = "red")+
+  geom_vline(xintercept = median(data$PBIPC), color = "green")
+```
+
+### Gráfico de línea
+
+El gráfico de líneas es una herramienta de visualización de datos que conecta puntos de datos individuales con líneas, mostrando tendencias o cambios en una variable numérica a lo largo del tiempo o de otra variable numérica. Sirve principalmente para visualizar la evolución de una o varias cantidades, permitiendo identificar patrones, tendencias, picos, y caídas en los datos a lo largo de un período o rango específico.
+
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+CPI<-read_xlsx("data/CPI.xlsx")
+```
+
+Cómo evolucionó Perú y Bolivia en el CPI score desde el 2017?
+
+```{r}
+CPI |> 
+  filter(country=="Peru"|country=="Bolivia" |country=="Italy") |> 
+  ggplot() +
+  aes(x=year, y=cpi_score, color=country)+
+  geom_line()+
+  geom_point()+
+  ylim(0, 80)+
+  geom_text(aes(label=round(cpi_score, 1)), 
+            vjust=-0.5,                   
+            hjust=1.2) 
+```
