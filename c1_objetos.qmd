@@ -9,8 +9,6 @@
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSkXYbvWS5fbyN8LRBHn2Hcvv03-wzst6a2Hwbm-zhQ8AK1YqqxsOGnRQGOI-T0gF2V_F3Z5zqOWoWU/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
-
 ## Sobre R
 
 ### Consideraciones básicas

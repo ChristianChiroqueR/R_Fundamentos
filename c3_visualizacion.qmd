@@ -10,7 +10,7 @@ Disponemos de una base de datos que incluye una variedad de indicadores e índic
 
 Los datos abarcan: País, Continente, Región, Índice, Índice de Lavado de Activos, Matrícula, PBI per cápita, Pobreza Urbano, Gasto en educación, Índice de Percepción de la Corrupción, Estado de derecho, Índice de Democracia, Categoría del Índice de Democracia, Índice de Crimen Organizado.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(readxl)
 data<-read_xlsx("data/AML.xlsx")
@@ -242,21 +242,31 @@ data |>
   geom_bar(position = "fill")
 ```
 
-Podemos personalizar el gráfico un poco más:
+Podemos personalizar el gráfico un poco más. Cómo lo presentaría el propio equipo de The Economist?
 
 ```{r}
+library(ggthemes)
 data |> 
   drop_na(Continent, Democracy_Index_cat) |> 
   ggplot()+
   aes(x = Continent, fill = Democracy_Index_cat)+
   geom_bar(position = "fill")+
-  geom_text(aes(label = scales::percent(..count../tapply(..count.., ..x.., sum)[..x..], accuracy = 1)),
+  geom_text(aes(label = scales::percent(after_stat(count)/tapply(after_stat(count), after_stat(x), sum)[after_stat(x)], accuracy = 0.1)), size=3,
             stat = "count",
-            position = position_fill(vjust = 0.5))
+            position = position_fill(vjust = 0.5)) +
+  labs(title="Tipo de régimen político según continente", 
+      x="",
+      y="",
+      fill = "Categoría",
+        caption="Fuente: Economist Intelligence Unit\nElaborado por Christian Chiroque") + 
+theme_economist() + scale_fill_economist() + theme(legend.text = element_text(size = 8))
+
 ```
 
-::: callout-note
-En ggplot2, las partes del código que usan .. (puntos dobles) se refieren a variables estadísticas temporales que se crean durante el cálculo de estadísticas en el gráfico. Estas variables no existen en los datos originales, sino que se generan en el proceso de crear el gráfico, y son accesibles solo dentro de ciertas funciones como aes() en geom_text().
+::: {.callout-caution collapse="true"}
+## Sobre geom_text()
+
+Dentro de geom_text, estamos utilizando la función aes() para definir la estética del texto, específicamente la etiqueta (label) que se mostrará en cada segmento de la barra apilada. El cálculo dentro de aes(label = ...) utiliza scales::percent() para convertir un valor en un formato de porcentaje con una precisión de un decimal, lo cual se especifica con accuracy = 0.1. El valor dentro de scales::percent() se calcula como el conteo de observaciones (after_stat(count)) dividido por el total de observaciones en la categoría correspondiente del eje x, obtenido mediante tapply(after_stat(count), after_stat(x), sum)\[after_stat(x)\], donde after_stat(count) accede al conteo generado por ggplot2 y after_stat(x) accede a las categorías del eje x. Este cálculo da como resultado la proporción de cada subcategoría dentro de su categoría principal. La función geom_text() también incluye stat = "count", lo que indica que las etiquetas se basan en los conteos de las barras, y position = position_fill(vjust = 0.5), que posiciona las etiquetas en el centro de cada segmento apilado de la barra (vjust = 0.5 centra verticalmente las etiquetas en cada subcategoría). Finalmente, size = 3 ajusta el tamaño del texto de las etiquetas, haciéndolo más pequeño para mejorar la legibilidad del gráfico.
 :::
 
 ## Para variables numéricas
@@ -294,7 +304,10 @@ También puedes solicitar boxplot por grupos:
 data |> 
   ggplot() + 
   aes(y = PBIPC, colour=Continent) + 
-  geom_boxplot()
+  geom_boxplot() + 
+  labs(title="PBI per cápita ($) según continente",
+      caption="Gapminder Dataset") + 
+  theme_stata() + scale_color_stata()
 ```
 
 ¿qué nos dice este gráfico?
@@ -352,3 +365,66 @@ CPI |>
             vjust=-0.5,                   
             hjust=1.2) 
 ```
+
+### Gráfico de dispersión
+
+Ya lo habíamos visto arriba pero lo definimos también. Un gráfico de dispersión, también conocido como diagrama de dispersión o scatter plot, es un tipo de gráfico que utiliza coordenadas cartesianas para mostrar la relación entre dos variables numéricas. Cada punto en el gráfico representa un par de valores (x, y), donde la posición en el eje horizontal (x) corresponde a una variable y la posición en el eje vertical (y) corresponde a la otra variable.
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=Democracy_Index)+
+  aes(color=Continent)+
+  geom_point(size=2)+
+  labs(title="Gráfico de dispersión de Índice de Democracia y el Índice de Corrupción", 
+      subtitle="Año 2018", 
+      caption="Fuente: The Economist y Transparency International\nElaboración Propia", 
+      x="Índice de Corrupción",
+      y="Democracy Index")+
+  theme_economist() + scale_colour_economist()+
+  theme(plot.title = element_text(size = 12),       
+        plot.subtitle = element_text(size = 10),    
+        legend.title = element_text(size = 10),    
+        legend.text = element_text(size = 8))
+```
+
+## Ggplot interactivo
+
+ggplotly es una función del paquete plotly en R que permite convertir gráficos estáticos creados con ggplot2 en gráficos interactivos. Esta conversión enriquece la experiencia del usuario al permitir la interacción con los gráficos, como hacer zoom, desplazar, y mostrar información adicional mediante tooltips (cuadros emergentes).
+
+Esto es especialmente útil para explorar datos de manera más dinámica y obtener insights adicionales que no son posibles con gráficos estáticos.
+
+```{r message=FALSE, warning=FALSE}
+library(plotly)
+```
+
+Veamos nuevamente el gráfico de dispersión anterior:
+
+```{r}
+grafico_plano<-data |> 
+  ggplot()+
+  aes(x=CPI_Index, y=Democracy_Index, label=Pais)+
+  aes(color=Continent)+
+  geom_point(size=2)+
+  labs(title="Gráfico de dispersión de Índice de Democracia y el Índice de Corrupción", 
+      subtitle="Año 2018", 
+      caption="Fuente: The Economist y Transparency International\nElaboración Propia", 
+      x="Índice de Corrupción",
+      y="Democracy Index")+
+  theme_economist() + scale_colour_economist() +
+  theme(plot.title = element_text(size = 12),       
+        plot.subtitle = element_text(size = 10),    
+        legend.title = element_text(size = 10),    
+        legend.text = element_text(size = 8))
+```
+
+Lo convertimos en interactivo:
+
+```{r}
+grafico_interactivo<-ggplotly(grafico_plano)
+grafico_interactivo
+```
+
+::: callout-warning
+Los gráficos interactivos funcionan mejor en archivos HTML, documentos R Markdown (con output: html_document), y Jupyter Notebooks, permitiendo zoom, tooltips, y paneo, ideales para presentaciones web y dashboards interactivos.
+:::

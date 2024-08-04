@@ -9,8 +9,6 @@
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSzIP1Y4dnSARNKLc3CcA-HJZDar2Ms4lrSkwXQ--DudR7n3fi4bMPhHho55LKerTiDSERDhheti3Ln/embed?start=false&loop=false&delayms=60000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
-
 ## Introducción al Tidyverse
 
 El tidyverse es una colección de paquetes de R diseñados para la ciencia de datos que comparten una filosofía subyacente y son interoperables, facilitando la importación, manipulación, exploración y visualización de datos.

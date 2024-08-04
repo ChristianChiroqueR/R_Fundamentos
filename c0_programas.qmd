@@ -12,7 +12,6 @@ La versión más reciente, al 14 de julio del 2024, es la 4.4.1.
 
 Recuerda que R es un software libre por eso otorga a los usuarios la libertad de usar, estudiar, modificar y distribuir el código fuente. Estas libertades permiten colaboración y mejora continua del software por parte de la comunidad.
 
-
 ## R Studio
 
 ![](images/Rstudio_logo.png)
@@ -22,7 +21,6 @@ RStudio es un entorno de desarrollo integrado (IDE) para el lenguaje de programa
 Lo puedes descargar desde el siguiente link:
 
 [Haz click aquí para descargar R Studio](https://posit.co/download/rstudio-desktop/)
-
 
 ::: callout-warning
 ¡Recuerda que primero debes instalar R y luego R Studio!
@@ -34,14 +32,13 @@ Te sugiero ver el siguiente video para que puedas instalar los programas en tu c
 
 {{< video https://www.youtube.com/watch?v=Re3DqxM_f2k >}}
 
-
 ## Quarto
 
 ![](images/quarto_logo.jpeg)
 
-Quarto es una plataforma de publicación que permite crear documentos reproducibles, combinando texto, código y resultados de análisis en un solo documento. 
+Quarto es una plataforma de publicación que permite crear documentos reproducibles, combinando texto, código y resultados de análisis en un solo documento.
 
-Es especialmente útil para científicos de datos, analistas y académicos, ya que soporta múltiples lenguajes de programación como R, Python y Julia. 
+Es especialmente útil para científicos de datos, analistas y académicos, ya que soporta múltiples lenguajes de programación como R, Python y Julia.
 
 Quarto facilita la creación de informes, presentaciones, sitios web y más, integrando visualizaciones y análisis de datos de manera dinámica y reproducible.
 
