@@ -12,6 +12,7 @@ book:
     - c1_objetos.qmd
     - c2_manipulacion.qmd
     - c3_visualizacion.qmd
+    - c4_transformacion.qmd
     - references.qmd
 
 bibliography: references.bib
