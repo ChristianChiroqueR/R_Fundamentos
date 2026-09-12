@@ -17,13 +17,13 @@ book:
         - c3_visualizacion.qmd
         - c4_transformacion.qmd
 
-    - part: R Intermedio
-      chapters: 
-        - 2_c1_dashboards.qmd
-        - 2_c2_shiny.qmd
-        - 2_c3_rl.qmd
-        - 2_c4_rl2.qmd
-        - 2_c5_cluster1.qmd
+    # - part: R Intermedio
+    #   chapters: 
+    #     - 2_c1_dashboards.qmd
+    #     - 2_c2_shiny.qmd
+    #     - 2_c3_rl.qmd
+    #     - 2_c4_rl2.qmd
+    #     - 2_c5_cluster1.qmd
 
     - references.qmd
 

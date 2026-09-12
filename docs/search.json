@@ -46,6 +46,7 @@
     "section": "",
     "text": "R, un lenguaje de programación\n.R es un entorno y lenguaje de programación con un enfoque al análisis estadístico. Primero debemos instalar el R (el software estadístico), el cual lo podemos descargar en el siguiente enlace:\nHaz click aquí para descargar R\nLa versión más reciente, al 13 de junio de 2025, es la 4.5.1.\nRecuerda que R es un software libre por eso otorga a los usuarios la libertad de usar, estudiar, modificar y distribuir el código fuente. Estas libertades permiten colaboración y mejora continua del software por parte de la comunidad.",
     "crumbs": [
+      "Fundamentos de R",
       "Instalación de software"
     ]
   },
@@ -136,6 +137,7 @@
     "section": "R Studio",
     "text": "R Studio\n\nRStudio es un entorno de desarrollo integrado (IDE) para el lenguaje de programación R. Facilita el trabajo con R al proporcionar una interfaz gráfica amigable que incluye un editor de código avanzado, herramientas de depuración, visualización de datos y gestión de paquetes, lo que optimiza y simplifica el proceso de análisis de datos y programación estadística.\nLo puedes descargar desde el siguiente link:\nHaz click aquí para descargar R Studio\n\n\n\n\n\n\nAdvertencia\n\n\n\n¡Recuerda que primero debes instalar R y luego R Studio!",
     "crumbs": [
+      "Fundamentos de R",
       "Instalación de software"
     ]
   },
@@ -146,6 +148,7 @@
     "section": "Manual de instalación de R y R Studio",
     "text": "Manual de instalación de R y R Studio\nTe sugiero ver el siguiente video para que puedas instalar los programas en tu computadora:",
     "crumbs": [
+      "Fundamentos de R",
       "Instalación de software"
     ]
   },
@@ -156,6 +159,7 @@
     "section": "Quarto",
     "text": "Quarto\n\nQuarto es una plataforma de publicación que permite crear documentos reproducibles, combinando texto, código y resultados de análisis en un solo documento.\nEs especialmente útil para científicos de datos, analistas y académicos, ya que soporta múltiples lenguajes de programación como R, Python y Julia.\nQuarto facilita la creación de informes, presentaciones, sitios web y más, integrando visualizaciones y análisis de datos de manera dinámica y reproducible.\nLo puedes descargar desde el siguiente link:\nHaz click aquí para descargar Quarto",
     "crumbs": [
+      "Fundamentos de R",
       "Instalación de software"
     ]
   },
