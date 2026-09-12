@@ -2,13 +2,7 @@
 
 ## Objetivos de la sesión {.unnumbered}
 
--   Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.
-
-## Presentación {.unnumbered}
-
-```{=html}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSkXYbvWS5fbyN8LRBHn2Hcvv03-wzst6a2Hwbm-zhQ8AK1YqqxsOGnRQGOI-T0gF2V_F3Z5zqOWoWU/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-```
+Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.
 
 ## Sobre R
 

@@ -1,8 +1,21 @@
-# Sobre el curso {.unnumbered}
+# Bienvenidos {.unnumbered}
 
 ¡Bienvenidos al curso de Fundamentos de R para Ciencias Sociales y Gestión Pública!
 
-Este curso está diseñado para ofrecer una introducción al uso del software R desde la perspectiva de la ciencia de datos. A lo largo del curso, trabajaremos en tres ejes principales:
+Este curso está diseñado para ofrecer una introducción al uso del software R desde la perspectiva de la ciencia de datos.
+
+
+## Sobre el docente
+
+Soy Christian Chiroque, politólogo de formación, con maestría en gerencia social (PUCP) y maestría en estadística (UNALM). Actualmente estudiante doctoral en la Universidad Nacional Mayor de San Marcos (UNMSM), en inteligencia artificial y tecnologías emergentes. Mi investigación doctoral se centra en la aplicación de redes neuronales de grafos (GNN) a la detección de operaciones sospechosas de lavado de activos.
+
+Soy analista principal en la Unidad de Inteligencia Financiera del Perú (UIF-Perú), donde trabajo hace más de cinco años en temas de prevención de lavado de activos y financiamiento del terrorismo y la proliferación (ALA/CFT/CFP), cooperación internacional y preparación para las evaluaciones mutuas del GAFI/GAFILAT.
+
+Puedes saber más sobre mi en mi [página de LinkedIn](https://www.linkedin.com/in/christianchr/) o en mi [canal de Youtube](https://www.youtube.com/@Datapol%C3%ADtica)
+
+## Sobre el curso
+
+A lo largo del curso, trabajaremos en tres ejes principales:
 
 1.  Fundamentos de programación en R: Aquí aprenderemos las definiciones y los fundamentos de programación que sustentan el funcionamiento del software R y los distintos algoritmos que utilizaremos.
 
@@ -11,13 +24,3 @@ Este curso está diseñado para ofrecer una introducción al uso del software R 
 3.  Visualización de datos y reportes analíticos: Finalmente, estudiaremos los fundamentos para la visualización de datos y la elaboración de reportes analíticos, permitiéndonos comunicar nuestros hallazgos de manera clara y efectiva.
 
 Puedes leer el detalle del contenido en el sílabo del curso colgado en la plataforma del Diplomado.
-
-```{=html}
-<iframe src="files/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
-```
-
-## Sobre trabajo final
-
-```{=html}
-<iframe src="files/trabajo_grupal.pdf" width="700" height="500" style="border: none;"></iframe>
-```

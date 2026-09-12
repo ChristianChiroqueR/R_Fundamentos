@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fundamentos de R para Ciencias Sociales y Gestión Pública - 1&nbsp; Introducción al R</title>
+<title>R para Ciencias Sociales y Gestión Pública - 1&nbsp; Introducción al R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./c1_objetos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./c0_programas.html">Fundamentos de R</a></li><li class="breadcrumb-item"><a href="./c1_objetos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -132,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentos de R para Ciencias Sociales y Gestión Pública</a> 
+      <a href="./">R para Ciencias Sociales y Gestión Pública</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -148,39 +148,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sobre el curso</span></a>
+ <span class="menu-text">Bienvenidos</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Fundamentos de R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./c0_programas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instalación de software</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./c1_objetos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al R</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./c2_manipulacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./c3_visualizacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualización de datos</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./c4_transformacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Transformación de tablas y otros</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -198,7 +209,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión">Objetivos de la sesión</a></li>
-  <li><a href="#presentación" id="toc-presentación" class="nav-link" data-scroll-target="#presentación">Presentación</a></li>
   <li><a href="#sobre-r" id="toc-sobre-r" class="nav-link" data-scroll-target="#sobre-r"><span class="header-section-number">1.1</span> Sobre R</a>
   <ul class="collapse">
   <li><a href="#consideraciones-básicas" id="toc-consideraciones-básicas" class="nav-link" data-scroll-target="#consideraciones-básicas"><span class="header-section-number">1.1.1</span> Consideraciones básicas</a></li>
@@ -226,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./c0_programas.html">Fundamentos de R</a></li><li class="breadcrumb-item"><a href="./c1_objetos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al R</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al R</span></h1>
 </div>
@@ -247,13 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="objetivos-de-la-sesión" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="objetivos-de-la-sesión">Objetivos de la sesión</h2>
-<ul>
-<li>Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.</li>
-</ul>
-</section>
-<section id="presentación" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="presentación">Presentación</h2>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSkXYbvWS5fbyN8LRBHn2Hcvv03-wzst6a2Hwbm-zhQ8AK1YqqxsOGnRQGOI-T0gF2V_F3Z5zqOWoWU/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<p>Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.</p>
 </section>
 <section id="sobre-r" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sobre-r"><span class="header-section-number">1.1</span> Sobre R</h2>
